@@ -29,7 +29,7 @@ header logo {
     align-items: center;
     /* margin-bottom: 30px; */
 }
-
+/* formulario de busca */
 .form {
     display: flex;
     margin: 2rem;
@@ -56,7 +56,7 @@ header logo {
     cursor: pointer;
     text-transform: uppercase;
 }
-
+/* botões paginação  */
 .buttons {
     display: flex;
     width: 30px;
@@ -84,3 +84,51 @@ header logo {
     color: #000;
     background-color: #fff;
 }
+
+/* cards de personagens */
+
+.list {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 20%;/*responsavel pelo numero de cards na largura*/
+    margin: 0.5rem;
+    background-color: #fff;
+    color: #000;
+}
+
+.card-header {
+    padding: 1rem;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-header .card.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-img img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 1rem;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-body p {
+    font-size: 1.2rem;
+}
+

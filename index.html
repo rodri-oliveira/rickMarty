@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,10 +8,11 @@
     <title>Rick and Morty Characters</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- cabeçalho com a imagem  -->
     <header>
-        <img src="./img/rick-and-morty-logo-font-free-download-1200x675.jpg"class="logo" alt="logo Rick and Morty">
+        <img src="./img/rick-and-morty-logo-font-free-download-1200x675.jpg" class="logo" alt="logo Rick and Morty">
     </header>
     <main class="container">
         <!-- formulario de busca -->
@@ -19,11 +21,17 @@
             <button>Buscar</button>
         </form>
         <!-- lista de personagens -->
-        <section class="list" id="list"></section>
+        <section class="list" id="list">
+            <!-- car de personagens -->
+        </section>
+
         <div class="buttons">
-            <button id="prev">prev</button>
-            <button id="next">next</button>
+            <button onclick="prevPage()" id="prev">prev</button>
+            <button onclick="nextPage()" id="next">next</button>
         </div>
     </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
