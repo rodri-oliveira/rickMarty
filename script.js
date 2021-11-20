@@ -1,17 +1,16 @@
 const urlApi = 'https://rickandmortyapi.com/api/character'
 const listElementos = document.getElementById('list')
 
-let nextURL = ''
-let prevURL = ''
+let nextURL = ''// para buttons
+let prevURL = ''// para buttons
 
 const getCharacters = async (url) => {
     const response = await fetch(url)
     const data = await response.json()
-    nextURL = data.info.next
-    prevURL = data.info.prev
-    const characters = data.results
-    render(characters) /*recursividade, atribuo os dados(characters) a função RENDER*/
-    // console.log(data)
+    nextURL = data.info.next // pega a URL da proxima pagina
+    prevURL = data.info.prev // pega a URL da proxima anterior
+    const characters = data.results // results é um objeto da API (INFO)
+    render(characters) /*recursividade, atribui os dados(characters) a função RENDER*/
 }
 
 const render = (characters) => {
@@ -37,12 +36,12 @@ const render = (characters) => {
     })
 }
 
-const nextPage = () => {
+const nextPage = () => { // função imprementa o button next
     getCharacters(nextURL)
 }
 
-const prevPage = () => {
+const prevPage = () => { // função imprementa o button prev
     getCharacters(prevURL)
 }
 
-getCharacters(urlApi)
+getCharacters(urlApi) // recebe a url da API
