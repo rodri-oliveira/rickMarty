@@ -1,47 +1,55 @@
-const urlApi = 'https://rickandmortyapi.com/api/character'
-const listElementos = document.getElementById('list')
+const urlApi = 'https://rickandmortyapi.com/api/character/';
+const listEl = document.getElementById('list');
+let nextUrl = '';
+let prevUrl = '';
 
-let nextURL = ''// para buttons
-let prevURL = ''// para buttons
 
-const getCharacters = async (url) => {
-    const response = await fetch(url)
-    const data = await response.json()
-    nextURL = data.info.next // pega a URL da proxima pagina
-    prevURL = data.info.prev // pega a URL da proxima anterior
-    const characters = data.results // results é um objeto da API (INFO)
-    render(characters) /*recursividade, atribui os dados(characters) a função RENDER*/
+const getCharacters = async (url, name = '') => {
+  if (name !== '') {
+    var response = await fetch(`${url}?name=${name}`)
+  } else {
+    var response = await fetch(url)
+  }
+
+  const data = await response.json();
+  nextUrl = data.info.next; // url da proxima pagina
+  prevUrl = data.info.prev; // url da pagina anterior
+  const characters = data.results;
+  render(characters);
+}
+
+const searchCharacters = (evento) => {
+  evento.preventDefault();
+  const name = document.querySelector('input').value;
+  getCharacters(urlApi, name);
 }
 
 const render = (characters) => {
-
-    listElementos.innerHTML = '' //limpa a tela antes de renderizar o proximo insert
-
-    characters.map((character) => {
-        listElementos.insertAdjacentHTML('beforeend',
-        `<div class="card">
-            <div class="card-header">
-                <p class="card-title">${character.name}</p>
-            </div>
-            <div class="card-img">
-                <img src="${character.image}" alt="${character.name}">
-            </div>
-            <div class="card-body">
-                <p><b>Gender:</b>${character.gender}</p>
-                <p><b>Species:</b>${character.species}</p>
-                <p><b>Origem:</b>${character.origin.name}</p>
-
-            </div>
-        </div>`)
-    })
+  listEl.innerHTML = '';
+  characters.map((character) => {
+    listEl.insertAdjacentHTML('beforeend',
+      `<div class="card">
+      <div class="card-header">
+        <p class="card-title">${character.name}</p>
+      </div>
+      <div class="card-img">
+        <img src="${character.image}" alt="${character.name}"/>
+      </div>
+      <div class="card-body">
+        <p><b>Gender:</b> ${character.gender}</p>
+        <p><b>Species:</b> ${character.species}</p>
+        <p><b>Origin:</b> ${character.origin.name}</p>
+      </div>
+    </div>
+    `)
+  })
 }
 
-const nextPage = () => { // função imprementa o button next
-    getCharacters(nextURL)
+const nextPage = () => {
+  getCharacters(nextUrl);
+}
+const prevPage = () => {
+  getCharacters(prevUrl);
 }
 
-const prevPage = () => { // função imprementa o button prev
-    getCharacters(prevURL)
-}
-
-getCharacters(urlApi) // recebe a url da API
+getCharacters(urlApi);

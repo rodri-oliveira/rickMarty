@@ -16,9 +16,9 @@
     </header>
     <main class="container">
         <!-- formulario de busca -->
-        <form class="form">
+        <form class="form" onsubmit="searchCharacters(evento)">
             <input type="text" name="buscar" id="input" placeholder="Digite o nome do personagem">
-            <button>Buscar</button>
+            <button type="submit">Buscar</button>
         </form>
         <!-- lista de personagens -->
         <section class="list" id="list">
