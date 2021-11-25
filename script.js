@@ -53,3 +53,5 @@ const prevPage = () => {
 }
 
 getCharacters(urlApi);
+
+

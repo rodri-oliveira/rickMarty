@@ -5,8 +5,12 @@
     text-decoration: none;
 }
 
+html {
+    font-size: 62%;
+}
+
 body {
-    font-size: 100%;
+    font-size: 1.5rem;
     background-color: #04b4c6;
 }
 
@@ -22,17 +26,23 @@ header logo {
 }
 
 .container {
-    max-width: 1100px;
+    width: 100%;
+    /*aplicando responsividade*/
+    max-width: 830px;
+    /*aplicando responsividade*/
+
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     /* margin-bottom: 30px; */
 }
+
 /* formulario de busca */
 .form {
     display: flex;
     margin: 2rem;
+
 }
 
 .form input {
@@ -41,6 +51,11 @@ header logo {
     font-size: 1.2rem;
     border: 1px solid #000;
     border-radius: 5px;
+}
+
+.input::placeholder {
+    font-size: 1rem;
+    text-align: center;
 }
 
 .form button {
@@ -56,6 +71,7 @@ header logo {
     cursor: pointer;
     text-transform: uppercase;
 }
+
 /* botões paginação  */
 .buttons {
     display: flex;
@@ -96,7 +112,8 @@ header logo {
 }
 
 .card {
-    width: 20%;/*responsavel pelo numero de cards na largura*/
+    width: 20%;
+    /*responsavel pelo numero de cards na largura*/
     margin: 0.5rem;
     background-color: #fff;
     color: #000;
@@ -132,3 +149,47 @@ header logo {
     font-size: 1.2rem;
 }
 
+@media (max-width: 830px) {
+    .card {
+        width: 33%;
+    }
+
+    .input::placeholder {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 445px) {
+    .card {
+        width: 50%;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form button {
+        margin: 1.5rem;
+    }
+
+    .logo {
+        width: 90%;
+        margin-top: 1.2rem;
+    }
+
+    .input {
+        width: 100%;
+    }
+
+    .container {
+        display: column;
+    }
+
+    .input::placeholder {
+        font-size: 1rem;
+        text-align: center;
+    }
+}
